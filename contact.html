@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carlo's Website · Contact</title>
+    <meta
+      name="description"
+      content="Contact page for the simple, responsive three‑page project website."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <header class="layout-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Project Website home">
+          <span class="logo-mark">CW</span>
+          <span>Carlo's Website</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+        </button>
+
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link active" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="layout-main">
+      <div class="content">
+        <header class="page-header">
+          <h1 class="page-title">Contact</h1>
+          <p class="page-subtitle">
+            Have feedback, questions, or ideas? Drop a note using the form
+            below.
+          </p>
+        </header>
+
+        <section aria-label="Contact form">
+          <article class="card">
+            <h2 class="section-title">Send a message</h2>
+            <p class="muted">
+              This form does not submit to a server yet. Instead, it validates
+              your input in the browser and shows a confirmation message so you
+              can safely wire it up later.
+            </p>
+
+            <div class="spacer"></div>
+
+            <form class="form" data-contact-form novalidate>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="name">
+                    Name<span class="form-required" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label class="form-label" for="email">
+                    Email<span class="form-required" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label" for="message">
+                  Message<span class="form-required" aria-hidden="true"
+                    >*</span
+                  >
+                </label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+                <p class="form-help">
+                  Include as much detail as you like. This example keeps
+                  everything in your browser—no network requests are made.
+                </p>
+              </div>
+
+              <div>
+                <button class="btn btn-primary" type="submit">
+                  Submit message
+                </button>
+                <p class="form-status" data-form-status></p>
+              </div>
+            </form>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="layout-footer">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> Project Website. All rights reserved.</p>
+        <div class="footer-links" aria-label="Secondary navigation">
+          <a class="footer-link" href="about.html">About</a>
+          <a class="footer-link" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+

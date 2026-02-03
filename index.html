@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carlo's Website · Home</title>
+    <meta
+      name="description"
+      content="A simple, responsive three‑page project website built with semantic HTML, modern CSS, and vanilla JavaScript."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <header class="layout-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Project Website home">
+          <span class="logo-mark">CW</span>
+          <span>Carlo's Website</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+        </button>
+
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a class="nav-link active" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="layout-main">
+      <div class="content">
+        <section class="hero" aria-labelledby="home-title">
+          <div>
+            <p class="hero-pill">
+              <span class="hero-pill-dot" aria-hidden="true"></span>
+              <span>Responsive · Accessible · Vanilla</span>
+            </p>
+
+            <header class="page-header">
+              <h1 id="home-title" class="hero-heading">
+                A clean starting point for your next project.
+              </h1>
+              <p class="hero-lead">
+                This lightweight three‑page site is built with semantic HTML,
+                Ant Design–inspired styling, and no front‑end frameworks. Use it
+                as a foundation for prototypes, documentation, or simple
+                landing pages.
+              </p>
+            </header>
+
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <span>✅</span>
+                <span>Three static pages: Home, About, Contact</span>
+              </div>
+              <div class="hero-meta-item">
+                <span>📱</span>
+                <span>Fully responsive layout</span>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <a class="btn btn-primary" href="contact.html">
+                Get in touch
+              </a>
+              <a class="btn btn-ghost" href="about.html">
+                Learn more
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-aside" aria-label="Project details">
+            <div class="stat-row">
+              <article class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Static pages</div>
+              </article>
+              <article class="stat">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Frameworks</div>
+              </article>
+            </div>
+
+            <section class="card" aria-label="What you get">
+              <div class="card-title">What you get</div>
+              <p class="card-body">
+                A minimal structure with shared navigation, consistent
+                typography, and simple components you can extend without a
+                build step.
+              </p>
+              <div class="tag-row">
+                <span class="tag primary">HTML</span>
+                <span class="tag primary">CSS</span>
+                <span class="tag primary">JavaScript</span>
+                <span class="tag">Responsive</span>
+                <span class="tag">Accessible</span>
+              </div>
+            </section>
+          </aside>
+        </section>
+
+        <div class="spacer"></div>
+
+        <section aria-labelledby="section-overview">
+          <header class="page-header">
+            <h2 id="section-overview" class="section-title">Quick overview</h2>
+            <p class="page-subtitle">
+              A simple, modern layout that works on phones, tablets, and
+              desktops.
+            </p>
+          </header>
+
+          <div class="grid">
+            <article class="card">
+              <h3 class="card-title">Clean, semantic structure</h3>
+              <p class="card-body">
+                Built with landmarks like
+                <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> to
+                keep content organized and accessible.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Ready to extend</h3>
+              <p class="card-body">
+                Drop in your own content, hook the contact form up to a backend
+                or form service, and adapt the styles to match your brand.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="layout-footer">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> Carlo's Website. All rights reserved.</p>
+        <div class="footer-links" aria-label="Secondary navigation">
+          <a class="footer-link" href="about.html">About</a>
+          <a class="footer-link" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+      // keep the year up to date without extra JS complexity
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
