@@ -1,51 +1,101 @@
-// Simple shared behavior for all pages
+// Modern JavaScript (ES6+) for interactive functionality
 
-// Mobile navigation toggle
-function setupNavToggle() {
-  var toggle = document.querySelector(".nav-toggle");
-  var nav = document.querySelector("header nav");
+// DOM Elements
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-  if (!toggle || !nav) return;
+// Mark active link based on current page
+const setActiveNavFromPath = () => {
+    if (!navLinks.length) return;
 
-  toggle.addEventListener("click", function () {
-    var isOpen = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-}
+    const fileName = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(link => link.classList.remove('active'));
 
-// Lightweight contact form handling
-function setupContactForm() {
-  var form = document.querySelector("[data-contact-form]");
-  if (!form) return;
+    const match = Array.from(navLinks).find(link => (link.dataset.page || link.getAttribute('href')) === fileName);
+    (match || navLinks[0])?.classList.add('active');
+};
 
-  var status = form.querySelector("[data-form-status]");
+// Toggle mobile navigation menu
+const toggleNav = () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('active');
+};
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+// Close mobile menu when clicking outside
+const closeNavOnClickOutside = (event) => {
+    if (
+        navMenu.classList.contains('active') &&
+        !navToggle.contains(event.target) &&
+        !navMenu.contains(event.target)
+    ) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+    }
+};
 
-    var name = form.elements["name"].value.trim();
-    var email = form.elements["email"].value.trim();
-    var message = form.elements["message"].value.trim();
+// Handle navigation link clicks
+const handleNavClick = (event) => {
+    // Remove active class from all links
+    navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Add active class to clicked link
+    event.currentTarget.classList.add('active');
+    
+    // Close mobile menu if open
+    if (navMenu.classList.contains('active')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+    }
+};
 
-    if (!name || !email || !message) {
-      if (status) {
-        status.textContent = "Please fill in all required fields.";
-        status.className = "form-status error";
-      }
-      return;
+// Initialize event listeners
+const init = () => {
+    setActiveNavFromPath();
+
+    // Mobile menu toggle
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleNav);
     }
 
-    if (status) {
-      status.textContent = "Thanks, your message has been captured locally (no network request made).";
-      status.className = "form-status success";
-    }
+    // Close menu on outside click
+    document.addEventListener('click', closeNavOnClickOutside);
 
-    form.reset();
-  });
+    // Navigation link clicks
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            handleNavClick(event);
+        });
+    });
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Close mobile menu on resize to desktop
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            }
+        }, 250);
+    });
+
+    // Keyboard navigation support
+    navLinks.forEach(link => {
+        link.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                link.click();
+            }
+        });
+    });
+};
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  setupNavToggle();
-  setupContactForm();
-});
-

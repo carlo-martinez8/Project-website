@@ -1,140 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carlo's Website · About</title>
-    <meta
-      name="description"
-      content="Learn more about the goals and structure of this simple, responsive three‑page project website."
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="page">
-    <header class="layout-header">
-      <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Project Website home">
-          <span class="logo-mark">CW</span>
-          <span>Carlo's Website</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          <span></span>
-        </button>
-
-        <nav aria-label="Primary navigation">
-          <ul class="nav-list">
-            <li><a class="nav-link" href="index.html">Home</a></li>
-            <li><a class="nav-link active" href="about.html">About</a></li>
-            <li><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About page - edit this content later">
+    <title>Carlo's Website - About</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Carlo's Website</h1>
+            <nav class="nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-page="index.html">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-page="about.html">About</a></li>
+                    <li><a href="contact.html" class="nav-link" data-page="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="layout-main">
-      <div class="content">
-        <header class="page-header">
-          <h1 class="page-title">About this project</h1>
-          <p class="page-subtitle">
-            A small, opinionated starter that focuses on clarity, semantics, and
-            responsiveness without extra tooling.
-          </p>
-        </header>
-
-        <section class="about-layout" aria-label="Project details">
-          <article class="card">
-            <h2 class="section-title">Why this exists</h2>
-            <p class="card-body">
-              Many modern front‑end stacks are powerful but heavy. This project
-              intentionally keeps things small: three HTML pages, one CSS file,
-              and a single JavaScript file for behavior that feels native and
-              fast in any browser.
-            </p>
-
-            <ul class="list">
-              <li>Quick to understand for new developers.</li>
-              <li>Easy to deploy on any static hosting provider.</li>
-              <li>Flexible enough to adapt to different use cases.</li>
-            </ul>
-          </article>
-
-          <aside class="card" aria-label="Technical overview">
-            <h2 class="section-title">Technical snapshot</h2>
-            <p class="card-meta">Built with web standards only</p>
-            <p class="card-body">
-              The design language borrows from Ant Design—rounded cards,
-              familiar blue accents, and soft shadows—implemented manually in
-              CSS so you keep full control over the final look and feel.
-            </p>
-            <div class="tag-row">
-              <span class="tag primary">Semantic HTML</span>
-              <span class="tag primary">Flex &amp; Grid</span>
-              <span class="tag">Sticky header</span>
-              <span class="tag">Mobile nav</span>
+    <main class="main">
+        <section class="hero" aria-labelledby="about-title">
+            <div class="hero-content">
+                <h2 class="hero-title" id="about-title">About</h2>
+                <p class="hero-description">
+                    I am a SQA Automation Analyst at Versa Innovations Corp. That is transisioning to a new role as a Full Stack Developer.
+                </p>
             </div>
-          </aside>
         </section>
-
-        <div class="spacer"></div>
-
-        <section aria-labelledby="structure-title">
-          <header class="page-header">
-            <h2 id="structure-title" class="section-title">Page structure</h2>
-            <p class="page-subtitle">
-              Each page shares the same navigation, footer, and base styles.
-            </p>
-          </header>
-
-          <div class="grid">
-            <article class="card">
-              <h3 class="card-title">Home</h3>
-              <p class="card-body">
-                Highlights the value of the site with a hero section, quick
-                stats, and a short overview of what you get.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3 class="card-title">About</h3>
-              <p class="card-body">
-                Explains the motivation behind the project and describes the
-                structure, technologies, and design approach.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3 class="card-title">Contact</h3>
-              <p class="card-body">
-                Provides a simple form so visitors can reach out. The form is
-                wired up locally and ready to connect to your backend or
-                third‑party service.
-              </p>
-            </article>
-          </div>
-        </section>
-      </div>
     </main>
 
-    <footer class="layout-footer">
-      <div class="footer-inner">
-        <p>© <span id="year"></span> Carlo's Website. All rights reserved.</p>
-        <div class="footer-links" aria-label="Secondary navigation">
-          <a class="footer-link" href="about.html">About</a>
-          <a class="footer-link" href="contact.html">Contact</a>
-        </div>
-      </div>
-    </footer>
-
     <script src="main.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+</body>
 </html>
-
