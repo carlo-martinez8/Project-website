@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple inventory manager with CRUD operations">
+    <title>Carlo's Website - Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Carlo's Website</h1>
+            <nav class="nav" aria-label="Main navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-page="index.html">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-page="about.html">About</a></li>
+                    <li><a href="contact.html" class="nav-link" data-page="contact.html">Contact</a></li>
+                    <li><a href="inventory.html" class="nav-link" data-page="inventory.html">Inventory</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main inventory-main">
+        <section class="inventory-section" aria-labelledby="inventory-title">
+            <div class="container">
+                <h2 class="hero-title" id="inventory-title">Carlo's Inventory</h2>
+                <p class="hero-description">Add, edit, and remove items. Data persists via localStorage.</p>
+
+                <!-- Form: Create / Update -->
+                <form id="inventory-form" class="inventory-form" aria-label="Add or edit item">
+                    <input type="hidden" id="edit-id" value="">
+                    <div class="form-row">
+                        <label for="item-name">Item Name</label>
+                        <input type="text" id="item-name" required placeholder="e.g. Laptop" aria-required="true">
+                    </div>
+                    <div class="form-row">
+                        <label for="item-quantity">Quantity</label>
+                        <input type="number" id="item-quantity" min="0" value="1" required aria-required="true">
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Add Item</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary" style="display:none;">Cancel</button>
+                </form>
+
+                <!-- Error / Success Messages -->
+                <div id="message" class="message" role="alert" aria-live="polite"></div>
+
+                <!-- Item List -->
+                <ul id="inventory-list" class="inventory-list" aria-label="Inventory items"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="inventory.js"></script>
+</body>
+</html>
